@@ -9,23 +9,36 @@ It allows students to **enroll in courses, manage enrollments, and demonstrates 
 - **Student Service**: Manages student details.
 - **Course Service**: Manages course information.
 - **Enrollment Service**: Handles student enrollments into courses.
+- **Eureka Server**: Acts as a service registry for dynamic service discovery.  
+- **Eureka Clients**: All services (Student, Course, Enrollment) register themselves to Eureka Server.  
 - **Microservices Communication**: Implemented using `RestTemplate`.
+- **Database Support**: Both **MySQL** and **PostgreSQL** supported (configurable via `application.yml`).  
 - **MongoDB Integration**: Stores and retrieves data efficiently.
 - **CRUD Operations**: Full Create, Read, Update, Delete support.
 ---
+             +----------------+
+             |  Eureka Server |
+             +--------+-------+
+                      |
+  -------------------------------------------
+  |                    |                     |
++-----+-----+   +------+-----+      +------+------+
+| Student |        | Course |       | Enrollment |
+| Service |        | Service |      | Service |
+|(Client)|         | (Client)|      | (Client) |
++-----------+   +-------------+     +-------------+
 
 ## 🏗️ Project Architecture
 Student Service --->
-\
----> Enrollment Service ---> MongoDB
-/
+---> Enrollment Service ---> 
 Course Service --->
 ---
 
 ## 🛠️ Tech Stack
 - **Java 17**  
-- **Spring Boot 3.x**  
+- **Spring Boot 3.x**
 - **Spring Data MongoDB**  
+- **Spring Data Jpa**  
 - **Spring Web (REST APIs)**  
 - **Maven**  
 - **Eclipse/STS IDE**  
@@ -95,8 +108,6 @@ Replace RestTemplate with Spring Cloud OpenFeign.
 
 Implement Spring Cloud Config for centralized configuration.
 
-Add API Gateway & Eureka Service Discovery.
-
 Secure APIs using Spring Security + JWT.
 
 Dockerize microservices for deployment.
@@ -108,13 +119,12 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 👨‍💻 Author
 
 Your Name
-📧 Email: your.email@example.com
-🔗 GitHub: your-username
+📧 Email:ritikbankhede0731@gmail.com.com
+🔗 GitHub: https://github.com/RitikBankhede
 
 
-👉 This is in **GitHub Markdown language** (with `#`, `##`, code blocks, lists, emojis, etc.) — it will look very professional on GitHub.  
+ 
 
-Do you want me to also **customize with your real name, email, and GitHub profile link** so it’s ready to upload directly?
 
 
 
